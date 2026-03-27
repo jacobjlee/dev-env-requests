@@ -1,0 +1,15 @@
+[project]
+name = "dev-env-requests"
+version = "0.1.0"
+description = "Developer environment request & approval system"
+authors = [
+    {name = "Jacob Juhyung Lee", email = "jacob.juhyung.lee@gmail.com"},
+]
+dependencies = []
+requires-python = "==3.11.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false

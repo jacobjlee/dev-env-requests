@@ -5,7 +5,7 @@ description = "Developer environment request & approval system"
 authors = [
     {name = "Jacob Juhyung Lee", email = "jacob.juhyung.lee@gmail.com"},
 ]
-dependencies = []
+dependencies = ["ruff>=0.15.8", "pre-commit>=4.5.1"]
 requires-python = "==3.11.*"
 readme = "README.md"
 license = {text = "MIT"}

@@ -5,7 +5,7 @@ description = "Developer environment request & approval system"
 authors = [
     {name = "Jacob Juhyung Lee", email = "jacob.juhyung.lee@gmail.com"},
 ]
-dependencies = ["ruff>=0.15.8", "pre-commit>=4.5.1"]
+dependencies = ["ruff>=0.15.8", "pre-commit>=4.5.1", "sqlalchemy>=2.0.48", "pydantic[email]>=2.12.5", "pydantic-settings>=2.13.1", "litestar>=2.21.1", "alembic>=1.18.4", "advanced-alchemy>=1.9.1", "aiosqlite>=0.22.1", "uvicorn>=0.42.0", "structlog>=25.5.0"]
 requires-python = "==3.11.*"
 readme = "README.md"
 license = {text = "MIT"}
@@ -13,3 +13,15 @@ license = {text = "MIT"}
 
 [tool.pdm]
 distribution = false
+
+[tool.pdm.scripts]
+start           = "uvicorn src.dev_env_requests.main:app --reload --port 8000"
+test            = "pytest tests/ -v --asyncio-mode=auto"
+lint            = "ruff check src/ tests/"
+format          = "ruff format src/ tests/"
+typecheck       = "mypy src/"
+migrate-new     = "alembic revision --autogenerate -m"
+migrate-up      = "alembic upgrade head"
+migrate-down    = "alembic downgrade -1"
+migrate-current = "alembic current"
+migrate-history = "alembic history"
